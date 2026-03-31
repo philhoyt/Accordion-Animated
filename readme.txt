@@ -8,39 +8,37 @@ Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Extends the core Accordion block with smooth, accessible open/close animation.
+Adds animated open/close transitions to the core WordPress Accordion block.
 
 == Description ==
 
-Accordion Animated adds a smooth height transition to the WordPress core Accordion block without replacing or re-registering it. Animation is opt-in per block — enable it in the block inspector and the panel opens and closes with a fluid animation driven by CSS custom properties.
+Accordion Animated extends the core Accordion block with a CSS height transition. It uses block filters rather than registering a new block, so existing Accordion blocks are unaffected. Animation is opt-in per block and configured entirely through block attributes rendered as CSS custom properties.
 
-**Features**
-
-* Toggle animation on or off for each Accordion block independently.
-* Control animation duration (100–1000ms) with a range slider.
-* Choose from four easing curves: Ease Out, Ease In Out, Linear, and Spring.
-* Animation state is stored in block attributes and rendered as CSS custom properties — no inline scripts.
-* Works with the WordPress Interactivity API that powers the core Accordion block.
+* Enable or disable animation per Accordion block from the block inspector.
+* Set animation duration between 100ms and 1000ms.
+* Four easing options: Ease Out, Ease In Out, Linear, and Spring.
+* No inline scripts. Animation state renders as CSS custom properties.
+* Built on the WordPress Interactivity API that the core Accordion block uses.
 
 == Installation ==
 
-1. Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen.
-2. Activate the plugin through the Plugins screen in WordPress.
-3. Open a page or post in the block editor, add or select an Accordion block, and enable **Animate open/close** in the block inspector under the Animation panel.
+1. Upload the plugin folder to `/wp-content/plugins/`, or install through the WordPress plugins screen.
+2. Activate through the Plugins screen.
+3. Select an Accordion block in the editor and enable **Animate open/close** in the Animation panel in the block inspector.
 
 == Frequently Asked Questions ==
 
 = Does this replace the core Accordion block? =
 
-No. The plugin uses block filters to extend the existing core/accordion block. No custom block is registered.
+No. It uses block filters to extend `core/accordion`. No new block is registered.
 
 = Will this break existing Accordion blocks? =
 
-No. Animation is disabled by default. Existing blocks are unaffected unless you enable the toggle in the inspector.
+No. Animation is off by default.
 
-= Can I control the speed and style of the animation? =
+= Can I control the speed and easing? =
 
-Yes. When animation is enabled, you can set the duration in milliseconds and choose an easing curve (Ease Out, Ease In Out, Linear, or Spring).
+Yes. Set the duration in milliseconds and pick an easing curve from the block inspector.
 
 == Changelog ==
 
