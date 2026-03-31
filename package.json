@@ -1,0 +1,23 @@
+{
+	"name": "accordion-animated",
+	"version": "1.0.0",
+	"description": "Adds smooth open/close animation to the WordPress core accordion block.",
+	"author": "philhoyt",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"files": [
+		"build",
+		"accordion-animated.php"
+	],
+	"devDependencies": {
+		"@wordpress/scripts": "^30.5.0"
+	}
+}

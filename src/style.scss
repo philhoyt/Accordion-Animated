@@ -1,0 +1,37 @@
+// Accordion Animated — Animation Styles
+
+.wp-block-accordion.has-animation {
+	// Fallback values — overridden per-block by inline styles.
+	--animation-duration: 300ms;
+	--animation-easing: ease-out;
+
+	// Keep icon transition in sync with the panel duration.
+	@media ( prefers-reduced-motion: no-preference ) {
+
+		.wp-block-accordion-item > .wp-block-accordion-heading
+		.wp-block-accordion-heading__toggle-icon {
+			transition:
+				transform
+				calc(var(--animation-duration) * 0.67)
+				var(--animation-easing);
+		}
+	}
+
+	// Override core's display:none so the panel remains in the rendering tree.
+	// inert and aria-hidden handle accessibility without needing display:none.
+	.wp-block-accordion-panel[inert],
+	.wp-block-accordion-panel[aria-hidden="true"] {
+		display: block;
+	}
+
+	// height is driven by frontend.js (panel.scrollHeight on open, 0 on close).
+	// overflow:hidden clips content as height animates.
+	.wp-block-accordion-panel {
+		overflow: hidden;
+		height: 0;
+
+		@media ( prefers-reduced-motion: no-preference ) {
+			transition: height var(--animation-duration) var(--animation-easing);
+		}
+	}
+}
