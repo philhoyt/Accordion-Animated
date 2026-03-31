@@ -15,6 +15,7 @@
 	},
 	"files": [
 		"build",
+		"js",
 		"accordion-animated.php"
 	],
 	"devDependencies": {

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="Accordion Animated">
+	<description>PHP coding standards for the Accordion Animated plugin.</description>
+
+	<file>accordion-animated.php</file>
+
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<arg name="extensions" value="php"/>
+
+	<rule ref="WordPress">
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+	</rule>
+
+	<config name="minimum_supported_wp_version" value="6.9"/>
+	<config name="testVersion" value="8.0-"/>
+</ruleset>
