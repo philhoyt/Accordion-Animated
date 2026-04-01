@@ -4,7 +4,7 @@ Tags: accordion, animation, block
 Requires at least: 6.9
 Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ No. Animation is off by default.
 Yes. Set the duration in milliseconds and pick an easing curve from the block inspector.
 
 == Changelog ==
+
+= 1.1.0 =
+* Animate padding-top, padding-bottom, and margin-block-start alongside height so panels with block-support spacing fully collapse to zero and expand smoothly.
+* GitHub-based plugin updates via Plugin Update Checker (v5.6).
 
 = 1.0.0 =
 * Initial release.
