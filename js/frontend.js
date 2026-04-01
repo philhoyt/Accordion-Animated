@@ -9,16 +9,39 @@
 					return;
 				}
 
-				// Set the correct height on load based on current open state.
-				panel.style.height = item.classList.contains( 'is-open' )
-					? panel.scrollHeight + 'px'
-					: '0px';
+				// Capture natural padding and margin before any style overrides.
+				const computed               = window.getComputedStyle( panel );
+				const naturalPaddingTop      = computed.paddingTop;
+				const naturalPaddingBottom   = computed.paddingBottom;
+				const naturalMarginBlockStart = computed.marginBlockStart;
+
+				// Set the correct state on load based on current open state.
+				if ( item.classList.contains( 'is-open' ) ) {
+					panel.style.paddingTop       = naturalPaddingTop;
+					panel.style.paddingBottom    = naturalPaddingBottom;
+					panel.style.marginBlockStart = naturalMarginBlockStart;
+					panel.style.height           = panel.scrollHeight + 'px';
+				} else {
+					panel.style.paddingTop       = '0px';
+					panel.style.paddingBottom    = '0px';
+					panel.style.marginBlockStart = '0px';
+					panel.style.height           = '0px';
+				}
 
 				// Watch for the Interactivity API toggling .is-open and update height.
 				new MutationObserver( function () {
-					panel.style.height = item.classList.contains( 'is-open' )
-						? panel.scrollHeight + 'px'
-						: '0px';
+					if ( item.classList.contains( 'is-open' ) ) {
+						// Restore padding and margin first so scrollHeight includes padding.
+						panel.style.paddingTop       = naturalPaddingTop;
+						panel.style.paddingBottom    = naturalPaddingBottom;
+						panel.style.marginBlockStart = naturalMarginBlockStart;
+						panel.style.height           = panel.scrollHeight + 'px';
+					} else {
+						panel.style.height           = '0px';
+						panel.style.paddingTop       = '0px';
+						panel.style.paddingBottom    = '0px';
+						panel.style.marginBlockStart = '0px';
+					}
 				} ).observe( item, {
 					attributes: true,
 					attributeFilter: [ 'class' ],

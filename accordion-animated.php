@@ -3,7 +3,7 @@
  * Plugin Name:       Accordion Animated
  * Plugin URI:        https://github.com/philhoyt/accordion-animated
  * Description:       Extends the core Accordion block with smooth, accessible open/close animation.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.9
  * Requires PHP:      8.0
  * Author:            philhoyt
@@ -16,6 +16,21 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
+
+/**
+ * Initialize Plugin Update Checker to enable GitHub-based updates.
+ */
+$puc_path = plugin_dir_path( __FILE__ ) . 'lib/plugin-update-checker/plugin-update-checker.php';
+if ( file_exists( $puc_path ) ) {
+	require_once $puc_path;
+
+	$accordion_animated_update_checker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+		'https://github.com/philhoyt/accordion-animated/',
+		__FILE__,
+		'accordion-animated'
+	);
+	$accordion_animated_update_checker->getVcsApi()->enableReleaseAssets();
 }
 
 /**

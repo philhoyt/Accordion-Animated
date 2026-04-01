@@ -2,6 +2,9 @@
 	"name": "philhoyt/accordion-animated",
 	"description": "Adds smooth open/close animation to the WordPress core accordion block.",
 	"license": "GPL-2.0-or-later",
+	"require": {
+		"yahnis-elsts/plugin-update-checker": "^5.5"
+	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.10",
 		"wp-coding-standards/wpcs": "^3.1",
@@ -14,6 +17,8 @@
 		}
 	},
 	"scripts": {
+		"post-install-cmd": "@php scripts/copy-puc.php",
+		"post-update-cmd": "@php scripts/copy-puc.php",
 		"lint:php": "phpcs",
 		"lint:php-fix": "phpcbf"
 	}

@@ -31,7 +31,11 @@
 		height: 0;
 
 		@media ( prefers-reduced-motion: no-preference ) {
-			transition: height var(--animation-duration) var(--animation-easing);
+			transition:
+				height            var(--animation-duration) var(--animation-easing),
+				padding-top       var(--animation-duration) var(--animation-easing),
+				padding-bottom    var(--animation-duration) var(--animation-easing),
+				margin-block-start var(--animation-duration) var(--animation-easing);
 		}
 	}
 }

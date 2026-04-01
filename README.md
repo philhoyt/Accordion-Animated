@@ -56,6 +56,10 @@ Yes. Set the duration in milliseconds and pick an easing curve from the block in
 
 ## Changelog
 
+### 1.1.0
+- Animate `padding-top`, `padding-bottom`, and `margin-block-start` alongside `height` so panels with block-support spacing fully collapse to zero and expand smoothly.
+- GitHub-based plugin updates via Plugin Update Checker (v5.6).
+
 ### 1.0.0
 - Initial release.
 

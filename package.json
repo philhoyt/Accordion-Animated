@@ -1,6 +1,6 @@
 {
 	"name": "accordion-animated",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Adds smooth open/close animation to the WordPress core accordion block.",
 	"author": "philhoyt",
 	"license": "GPL-2.0-or-later",
@@ -16,6 +16,7 @@
 	"files": [
 		"build",
 		"js",
+		"lib",
 		"accordion-animated.php"
 	],
 	"devDependencies": {
