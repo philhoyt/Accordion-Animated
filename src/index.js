@@ -7,3 +7,5 @@
 import './style.scss';
 import './editor.scss';
 import './filters/accordion';
+import './accordion-heading/index';
+import './accordion-item/index';

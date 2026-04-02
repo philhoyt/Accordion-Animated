@@ -1,0 +1,101 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "accordion-animated/accordion-heading",
+	"title": "Accordion Heading (Animated)",
+	"category": "design",
+	"parent": [ "accordion-animated/accordion-item" ],
+	"description": "Accordion heading with full InnerBlocks content support.",
+	"textdomain": "accordion-animated",
+	"usesContext": [
+		"core/accordion-icon-position",
+		"core/accordion-show-icon",
+		"core/accordion-heading-level"
+	],
+	"attributes": {
+		"level": {
+			"type": "number",
+			"default": 3
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"showIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"customIconType": {
+			"type": "string",
+			"default": "default"
+		},
+		"customIconChar": {
+			"type": "string",
+			"default": ""
+		},
+		"customIconUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"customIconId": {
+			"type": "integer",
+			"default": 0
+		},
+		"customIconWidth": {
+			"type": "integer",
+			"default": 0
+		},
+		"customIconHeight": {
+			"type": "integer",
+			"default": 0
+		},
+		"toggleAnimation": {
+			"type": "string",
+			"default": "default"
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"interactivity": {
+			"clientNavigation": true
+		},
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": false
+		},
+		"spacing": {
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"fontFamily": true,
+			"fontWeight": true,
+			"fontStyle": true,
+			"textTransform": true,
+			"letterSpacing": true,
+			"lineHeight": true,
+			"textDecoration": true
+		}
+	},
+	"selectors": {
+		"root": ".wp-block-accordion-heading",
+		"border": ".wp-block-accordion-heading__toggle",
+		"spacing": ".wp-block-accordion-heading__toggle"
+	}
+}

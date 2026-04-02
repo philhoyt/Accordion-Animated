@@ -1,0 +1,15 @@
+/**
+ * WordPress dependencies
+ */
+import { registerBlockType, createBlock } from '@wordpress/blocks';
+
+/**
+ * Internal dependencies
+ */
+import metadata from './block.json';
+import Edit from './edit';
+import save from './save';
+
+const transforms = {};
+
+registerBlockType( metadata, { edit: Edit, save, transforms } );
