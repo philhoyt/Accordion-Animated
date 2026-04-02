@@ -11,7 +11,6 @@ import {
 	RangeControl,
 	SelectControl,
 	RadioControl,
-	TextControl,
 	Button,
 } from '@wordpress/components';
 import { cloneElement } from '@wordpress/element';
@@ -224,7 +223,6 @@ addFilter(
 			const { attributes, setAttributes } = props;
 			const {
 				customIconType,
-				customIconChar,
 				customIconUrl,
 				customIconId,
 				toggleAnimation,
@@ -244,29 +242,12 @@ addFilter(
 									selected={ customIconType || 'default' }
 									options={ [
 										{ label: __( 'Default', 'accordion-animated' ), value: 'default' },
-										{ label: __( 'Character', 'accordion-animated' ), value: 'character' },
 										{ label: __( 'Image', 'accordion-animated' ), value: 'image' },
 									] }
 									onChange={ ( value ) =>
 										setAttributes( { customIconType: value } )
 									}
 								/>
-								{ customIconType === 'character' && (
-									<TextControl
-										label={ __(
-											'Character or emoji',
-											'accordion-animated'
-										) }
-										value={ customIconChar }
-										onChange={ ( value ) =>
-											setAttributes( { customIconChar: value } )
-										}
-										help={ __(
-											'Enter a single character or emoji to use as the toggle icon.',
-											'accordion-animated'
-										) }
-									/>
-								) }
 								{ customIconType === 'image' && (
 									<MediaUploadCheck>
 										<MediaUpload
@@ -451,14 +432,13 @@ addFilter(
 
 		const {
 			customIconType,
-			customIconChar,
 			customIconUrl,
 			customIconWidth,
 			customIconHeight,
 			toggleAnimation,
 		} = attributes;
 
-		const hasCustomIcon = customIconType && customIconType !== 'default';
+		const hasCustomIcon = customIconType === 'image' && customIconUrl;
 		const hasInvertAnimation = toggleAnimation === 'invert';
 
 		if ( ! hasCustomIcon && ! hasInvertAnimation ) {
@@ -468,7 +448,7 @@ addFilter(
 		// Props applied to the <h3> heading element.
 		const headingProps = {};
 		if ( hasCustomIcon ) {
-			headingProps[ 'data-custom-icon-type' ] = customIconType;
+			headingProps[ 'data-custom-icon-type' ] = 'image';
 		}
 		if ( hasInvertAnimation ) {
 			headingProps[ 'data-toggle-animation' ] = 'invert';
@@ -482,25 +462,16 @@ addFilter(
 		let customContent;
 		let iconProps = {};
 
-		if ( customIconType === 'character' && customIconChar ) {
-			customContent = (
-				<span aria-hidden="true">{ customIconChar }</span>
-			);
-		} else if ( customIconType === 'image' && customIconUrl ) {
-			customContent = (
-				<img src={ customIconUrl } alt="" aria-hidden="true" />
-			);
-			if ( customIconWidth && customIconHeight ) {
-				iconProps = {
-					style: {
-						aspectRatio: `${ customIconWidth } / ${ customIconHeight }`,
-						width: '28px',
-					},
-				};
-			}
-		} else {
-			// Type selected but no value configured yet — still apply heading props.
-			return cloneElement( element, headingProps );
+		customContent = (
+			<img src={ customIconUrl } alt="" aria-hidden="true" />
+		);
+		if ( customIconWidth && customIconHeight ) {
+			iconProps = {
+				style: {
+					aspectRatio: `${ customIconWidth } / ${ customIconHeight }`,
+					width: '28px',
+				},
+			};
 		}
 
 		return injectCustomIcon(
@@ -525,23 +496,18 @@ addFilter(
 			}
 
 			const { attributes } = props;
-			const { customIconType, customIconChar, customIconUrl, customIconWidth, customIconHeight } = attributes;
+			const { customIconType, customIconUrl, customIconWidth, customIconHeight } = attributes;
 
-			if ( ! customIconType || customIconType === 'default' ) {
+			if ( customIconType !== 'image' || ! customIconUrl ) {
 				return <BlockListBlock { ...props } />;
 			}
 
 			const wrapperStyle = { ...( props.wrapperProps?.style || {} ) };
 
-			if ( customIconType === 'character' && customIconChar ) {
-				const escaped = customIconChar.replace( /"/g, '\\"' );
-				wrapperStyle[ '--custom-icon-char' ] = `"${ escaped }"`;
-			} else if ( customIconType === 'image' && customIconUrl ) {
-				wrapperStyle[ '--custom-icon-url' ] = `url("${ customIconUrl }")`;
-				if ( customIconWidth && customIconHeight ) {
-					wrapperStyle[ '--custom-icon-aspect-ratio' ] = `${ customIconWidth } / ${ customIconHeight }`;
-					wrapperStyle[ '--custom-icon-width' ] = '28px';
-				}
+			wrapperStyle[ '--custom-icon-url' ] = `url("${ customIconUrl }")`;
+			if ( customIconWidth && customIconHeight ) {
+				wrapperStyle[ '--custom-icon-aspect-ratio' ] = `${ customIconWidth } / ${ customIconHeight }`;
+				wrapperStyle[ '--custom-icon-width' ] = '28px';
 			}
 
 			const wrapperProps = {

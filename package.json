@@ -20,6 +20,7 @@
 		"accordion-animated.php"
 	],
 	"devDependencies": {
+		"@wordpress/icons": "^12.1.0",
 		"@wordpress/scripts": "^30.5.0"
 	}
 }

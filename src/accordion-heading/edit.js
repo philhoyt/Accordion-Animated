@@ -14,7 +14,6 @@ import {
 import {
 	PanelBody,
 	RadioControl,
-	TextControl,
 	Button,
 } from '@wordpress/components';
 import { useDispatch } from '@wordpress/data';
@@ -25,7 +24,6 @@ export default function Edit( { attributes, setAttributes, context } ) {
 		iconPosition,
 		showIcon,
 		customIconType,
-		customIconChar,
 		customIconUrl,
 		customIconId,
 		toggleAnimation,
@@ -63,9 +61,7 @@ export default function Edit( { attributes, setAttributes, context } ) {
 
 	// Resolve the icon element for the editor preview.
 	let iconContent = '+';
-	if ( customIconType === 'character' && customIconChar ) {
-		iconContent = <span aria-hidden="true">{ customIconChar }</span>;
-	} else if ( customIconType === 'image' && customIconUrl ) {
+	if ( customIconType === 'image' && customIconUrl ) {
 		iconContent = <img src={ customIconUrl } alt="" aria-hidden="true" />;
 	}
 
@@ -99,19 +95,10 @@ export default function Edit( { attributes, setAttributes, context } ) {
 							selected={ customIconType || 'default' }
 							options={ [
 								{ label: __( 'Default', 'accordion-animated' ), value: 'default' },
-								{ label: __( 'Character', 'accordion-animated' ), value: 'character' },
 								{ label: __( 'Image', 'accordion-animated' ), value: 'image' },
 							] }
 							onChange={ ( value ) => setAttributes( { customIconType: value } ) }
 						/>
-						{ customIconType === 'character' && (
-							<TextControl
-								label={ __( 'Character or emoji', 'accordion-animated' ) }
-								value={ customIconChar }
-								onChange={ ( value ) => setAttributes( { customIconChar: value } ) }
-								help={ __( 'Enter a single character or emoji to use as the toggle icon.', 'accordion-animated' ) }
-							/>
-						) }
 						{ customIconType === 'image' && (
 							<MediaUploadCheck>
 								<MediaUpload

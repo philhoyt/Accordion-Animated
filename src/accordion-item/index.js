@@ -2,6 +2,7 @@
  * WordPress dependencies
  */
 import { registerBlockType, createBlock, cloneBlock } from '@wordpress/blocks';
+import { accordionItem } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -77,4 +78,4 @@ const transforms = {
 	],
 };
 
-registerBlockType( metadata, { edit: Edit, save, transforms } );
+registerBlockType( metadata, { edit: Edit, save, transforms, icon: accordionItem } );

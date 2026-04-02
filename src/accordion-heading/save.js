@@ -9,7 +9,6 @@ export default function save( { attributes } ) {
 		iconPosition,
 		showIcon,
 		customIconType,
-		customIconChar,
 		customIconUrl,
 		customIconWidth,
 		customIconHeight,
@@ -20,8 +19,8 @@ export default function save( { attributes } ) {
 
 	// Data attributes for CSS animation and icon targeting.
 	const headingDataProps = {};
-	if ( customIconType && customIconType !== 'default' ) {
-		headingDataProps[ 'data-custom-icon-type' ] = customIconType;
+	if ( customIconType === 'image' && customIconUrl ) {
+		headingDataProps[ 'data-custom-icon-type' ] = 'image';
 	}
 	if ( toggleAnimation === 'invert' ) {
 		headingDataProps[ 'data-toggle-animation' ] = 'invert';
@@ -36,9 +35,7 @@ export default function save( { attributes } ) {
 	let iconContent = '+';
 	const iconSpanProps = {};
 
-	if ( customIconType === 'character' && customIconChar ) {
-		iconContent = <span aria-hidden="true">{ customIconChar }</span>;
-	} else if ( customIconType === 'image' && customIconUrl ) {
+	if ( customIconType === 'image' && customIconUrl ) {
 		iconContent = <img src={ customIconUrl } alt="" aria-hidden="true" />;
 		if ( customIconWidth && customIconHeight ) {
 			iconSpanProps.style = {
