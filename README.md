@@ -64,6 +64,11 @@ The core `accordion-heading` block stores heading text as a single rich-text fie
 
 ## Changelog
 
+### 1.2.1
+- Fix: Prevent padding and margin from animating on page load for closed accordion panels.
+- Fix: Remove default block margin from Accordion Heading Extended.
+- Fix: Remove default toggle button padding inside Accordion Item Extended.
+
 ### 1.2.0
 - New: Replace the default toggle icon with a custom image from the media library.
 - New: Toggle animation direction: Default (rotate 45°) or Invert (rotate 180°).

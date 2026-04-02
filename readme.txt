@@ -4,7 +4,7 @@ Tags: accordion, animation, block
 Requires at least: 7.0
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,11 @@ Yes. Set the duration in milliseconds and pick an easing curve from the block in
 The core `accordion-heading` block stores heading text as a single rich-text field. Accordion Heading Extended uses InnerBlocks instead, so you can place any block inside the heading area. Use Accordion Item Extended to insert an accordion item that contains an extended heading. Both variants are interchangeable via block transforms.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix: Prevent padding and margin from animating on page load for closed accordion panels.
+* Fix: Remove default block margin from Accordion Heading Extended.
+* Fix: Remove default toggle button padding inside Accordion Item Extended.
 
 = 1.2.0 =
 * New: Replace the default toggle icon with a custom image from the media library.

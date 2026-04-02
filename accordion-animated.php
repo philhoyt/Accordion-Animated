@@ -3,7 +3,7 @@
  * Plugin Name:       Accordion Animated
  * Plugin URI:        https://github.com/philhoyt/accordion-animated
  * Description:       Extends the core Accordion block with smooth, accessible open/close animation.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Requires at least: 7.0
  * Requires PHP:      8.0
  * Author:            philhoyt

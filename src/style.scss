@@ -1,5 +1,15 @@
 // Accordion Animated — Animation Styles
 
+// Remove default block margin from the extended heading block.
+.wp-block-accordion-animated-accordion-heading {
+	margin: 0;
+}
+
+// Remove default toggle button padding when inside the extended item block.
+.wp-block-accordion-animated-accordion-item .wp-block-accordion-heading__toggle {
+	padding: 0;
+}
+
 .wp-block-accordion.has-animation {
 	// Fallback values — overridden per-block by inline styles.
 	--animation-duration: 300ms;

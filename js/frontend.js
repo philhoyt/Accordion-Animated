@@ -22,10 +22,15 @@
 					panel.style.marginBlockStart = naturalMarginBlockStart;
 					panel.style.height = panel.scrollHeight + 'px';
 				} else {
+					// Suppress transition so the initial snap-to-closed doesn't animate.
+					panel.style.transition = 'none';
 					panel.style.paddingTop = '0px';
 					panel.style.paddingBottom = '0px';
 					panel.style.marginBlockStart = '0px';
 					panel.style.height = '0px';
+					// Force a reflow to commit the values before re-enabling transition.
+					panel.getBoundingClientRect(); // eslint-disable-line no-unused-expressions
+					panel.style.transition = '';
 				}
 
 				// Watch for the Interactivity API toggling .is-open and update height.
