@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "accordion-animated/accordion-item",
-	"title": "Accordion Item (Animated)",
+	"title": "Accordion Item Extended",
 	"category": "design",
 	"parent": [ "core/accordion" ],
 	"description": "Accordion item with InnerBlocks heading support.",
