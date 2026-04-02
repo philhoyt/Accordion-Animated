@@ -1,7 +1,7 @@
 === Accordion Animated ===
 Contributors: philhoyt
 Tags: accordion, animation, block
-Requires at least: 7.0
+Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 8.0
 Stable tag: 1.2.1
