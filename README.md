@@ -1,5 +1,7 @@
 # Accordion Animated
 
+[![Playground Demo](https://img.shields.io/badge/Playground_Demo-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/Accordion-Animated/main/_playground/blueprint.json)
+
 Adds animated open/close transitions and extended block enhancements to the core WordPress Accordion block.
 
 ## Description
