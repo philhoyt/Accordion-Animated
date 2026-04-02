@@ -1,5 +1,42 @@
 // Accordion Animated — Editor-Only Styles
 // The animation styles from style.scss are injected into the editor canvas
 // via enqueue_block_assets, so the editor preview reflects front-end behavior.
-// This file is reserved for any future editor-specific overrides that should
-// NOT appear on the front end (e.g. visual hints, drag handles, etc.).
+
+// Custom toggle icon preview in the block editor.
+// The editor.BlockListBlock filter adds data-custom-icon-type to the block's
+// outer wrapper div, so selectors here target descendants of that wrapper.
+// CSS custom properties (--custom-icon-char, --custom-icon-url) are also set
+// on the wrapper and inherit down to the toggle icon element.
+
+[data-custom-icon-type] {
+	.wp-block-accordion-heading__toggle-icon {
+		svg {
+			display: none;
+		}
+	}
+}
+
+[data-custom-icon-type="character"] {
+	.wp-block-accordion-heading__toggle-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&::before {
+			content: var(--custom-icon-char);
+			font-style: normal;
+			line-height: 1;
+		}
+	}
+}
+
+[data-custom-icon-type="image"] {
+	.wp-block-accordion-heading__toggle-icon {
+		width: var(--custom-icon-width, 28px);
+		aspect-ratio: var(--custom-icon-aspect-ratio, 1);
+		background-image: var(--custom-icon-url);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}

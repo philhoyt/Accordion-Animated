@@ -67,6 +67,55 @@ add_filter(
 );
 
 /**
+ * Register custom toggle-icon attributes on core/accordion-heading server-side
+ * so WordPress does not strip them from saved post content on re-save.
+ */
+add_filter(
+	'block_type_metadata',
+	function ( array $metadata ): array {
+		if ( ( $metadata['name'] ?? '' ) !== 'core/accordion-heading' ) {
+			return $metadata;
+		}
+
+		$metadata['attributes'] = array_merge(
+			$metadata['attributes'] ?? [],
+			[
+				'customIconType' => [
+					'type'    => 'string',
+					'default' => 'default',
+				],
+				'customIconChar' => [
+					'type'    => 'string',
+					'default' => '',
+				],
+				'customIconUrl'    => [
+					'type'    => 'string',
+					'default' => '',
+				],
+				'customIconId'     => [
+					'type'    => 'integer',
+					'default' => 0,
+				],
+				'customIconWidth'  => [
+					'type'    => 'integer',
+					'default' => 0,
+				],
+				'customIconHeight'  => [
+					'type'    => 'integer',
+					'default' => 0,
+				],
+				'toggleAnimation'  => [
+					'type'    => 'string',
+					'default' => 'default',
+				],
+			]
+		);
+
+		return $metadata;
+	}
+);
+
+/**
  * Enqueue editor JavaScript.
  * Uses build/index.asset.php for the auto-generated dependency array and
  * cache-busting version hash produced by @wordpress/scripts.
