@@ -8,19 +8,11 @@
 // The attribute is only set when an image is actually selected, so the
 // default icon is only hidden when real custom content is present.
 
-[data-custom-icon-type="image"] {
-
-	.wp-block-accordion-heading__toggle-icon {
-		// Hide the default + text when a custom image is set.
-		font-size: 0;
-
-		display: block;
-		width: var(--custom-icon-width, 28px);
+.wp-block-accordion-heading__toggle-icon {
+	img {
+		width: 100%;
 		height: auto;
-		aspect-ratio: var(--custom-icon-aspect-ratio, 1);
-		background-image: var(--custom-icon-url);
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
+		object-fit: contain;
+		display: block;
 	}
 }

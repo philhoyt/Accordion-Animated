@@ -1,0 +1,55 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Accordion Animated",
+		"description": "Animated accordion block for the WordPress block editor.",
+		"author": "Phil Hoyt",
+		"categories": [ "blocks", "content" ]
+	},
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"login": true,
+	"landingPage": "/open-demo-page.php",
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "url",
+				"url": "https://github.com/philhoyt/Accordion-Animated/releases/latest/download/accordion-animated.zip"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "safe-svg"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Accordion Animated Demo"
+			}
+		},
+		{
+			"step": "importWxr",
+			"file": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/philhoyt/Accordion-Animated/main/_playground/demo.xml"
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/open-demo-page.php",
+			"data": "<?php require_once 'wp-load.php'; $pages = get_posts( [ 'name' => 'accordion', 'post_type' => 'page', 'numberposts' => 1 ] ); if ( $pages ) { wp_redirect( admin_url( 'post.php?post=' . $pages[0]->ID . '&action=edit' ) ); } else { wp_redirect( admin_url( 'edit.php?post_type=page' ) ); } exit;"
+		}
+	]
+}
