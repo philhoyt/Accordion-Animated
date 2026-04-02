@@ -8,7 +8,7 @@
 	},
 	"preferredVersions": {
 		"php": "8.2",
-		"wp": "latest"
+		"wp": "7.0"
 	},
 	"login": true,
 	"landingPage": "/open-demo-page.php",
