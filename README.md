@@ -1,22 +1,26 @@
 # Accordion Animated
 
-Adds animated open/close transitions to the core WordPress Accordion block.
+Adds animated open/close transitions and extended block enhancements to the core WordPress Accordion block.
 
 ## Description
 
-Accordion Animated extends the core Accordion block with a CSS height transition. It uses block filters rather than registering a new block, so existing Accordion blocks are unaffected. Animation is opt-in per block and configured entirely through block attributes rendered as CSS custom properties.
+Accordion Animated extends the core Accordion block with smooth CSS height transitions. Animation is opt-in per block and configured entirely through the block inspector. The plugin also provides two optional extended blocks — **Accordion Item Extended** and **Accordion Heading Extended** — that unlock rich block content inside the heading area and are fully interchangeable with core accordion blocks via block transforms.
 
 ## Features
 
 - Enable or disable animation per Accordion block from the block inspector.
 - Set animation duration between 100ms and 1000ms.
 - Four easing options: Ease Out, Ease In Out, Linear, and Spring.
-- No inline scripts. Animation state renders as CSS custom properties.
-- Built on the WordPress Interactivity API that the core Accordion block uses.
+- Animation timing renders as CSS custom properties; height transitions are driven by a lightweight frontend script.
+- Replace the default toggle icon with a custom image from the media library.
+- Choose toggle icon rotation: Default (rotate 45°) or Invert (rotate 180°).
+- **Accordion Item Extended** block — companion item with an unlocked heading area, usable wherever core accordion items are allowed.
+- **Accordion Heading Extended** block — InnerBlocks-based heading supporting any block content (paragraphs, images, etc.).
+- Block transforms between core and extended accordion variants in both directions.
 
 ## Requirements
 
-- WordPress 6.9+
+- WordPress 7.0+
 - PHP 8.0+
 
 ## Installation
@@ -46,15 +50,25 @@ composer lint:php-fix  # Auto-fix PHP issues
 ## FAQ
 
 **Does this replace the core Accordion block?**
-No. It uses block filters to extend `core/accordion`. No new block is registered.
+No. Block filters extend `core/accordion` and `core/accordion-heading` in place. The two extended blocks are entirely optional.
 
 **Will this break existing Accordion blocks?**
-No. Animation is off by default.
+No. Animation is off by default and all enhancements are opt-in.
 
 **Can I control the speed and easing?**
 Yes. Set the duration in milliseconds and pick an easing curve from the block inspector.
 
+**What is the difference between the extended blocks and core accordion blocks?**
+The core `core/accordion-heading` block stores heading text as a single rich-text field. The extended **Accordion Heading Extended** block uses InnerBlocks instead, so you can place any block — paragraphs, images, buttons — inside the heading area. Use **Accordion Item Extended** to insert an accordion item that contains an extended heading. Both variants are interchangeable via block transforms.
+
 ## Changelog
+
+### 1.2.0
+- New: Replace the default toggle icon with a custom image from the media library.
+- New: Toggle animation direction — Default (rotate 45°) or Invert (rotate 180°).
+- New: **Accordion Item Extended** block (`accordion-animated/accordion-item`) — companion accordion item with an open template and unlocked heading area.
+- New: **Accordion Heading Extended** block (`accordion-animated/accordion-heading`) — InnerBlocks-based heading supporting rich block content.
+- New: Block transforms between core and extended accordion item/heading variants in both directions.
 
 ### 1.1.0
 - Animate `padding-top`, `padding-bottom`, and `margin-block-start` alongside `height` so panels with block-support spacing fully collapse to zero and expand smoothly.
