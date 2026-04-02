@@ -28,7 +28,7 @@
 		<guid isPermaLink="false">https://example.com/?page_id=1</guid>
 		<description></description>
 		<content:encoded><![CDATA[
-<!-- wp:accordion {"animateTransition":true} -->
+<!-- wp:accordion {"autoclose":true,"animateTransition":true} -->
 <div role="group" class="wp-block-accordion has-animation" style="--animation-duration:300ms;--animation-easing:ease-out"><!-- wp:accordion-animated/accordion-item {"style":{"color":{"background":"#f5e8ce2e"}}} -->
 <div class="wp-block-accordion-animated-accordion-item wp-block-accordion-item has-background" style="background-color:#f5e8ce2e"><!-- wp:accordion-animated/accordion-heading {"iconPosition":"right","customIconType":"image","customIconUrl":"https://raw.githubusercontent.com/philhoyt/Accordion-Animated/main/_playground/images/plus.svg","customIconId":5,"customIconWidth":32,"customIconHeight":32,"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
 <h3 class="wp-block-accordion-animated-accordion-heading wp-block-accordion-heading" data-custom-icon-type="image" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
