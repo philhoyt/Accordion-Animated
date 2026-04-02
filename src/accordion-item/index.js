@@ -78,4 +78,9 @@ const transforms = {
 	],
 };
 
-registerBlockType( metadata, { edit: Edit, save, transforms, icon: accordionItem } );
+registerBlockType( metadata, {
+	edit: Edit,
+	save,
+	transforms,
+	icon: accordionItem,
+} );

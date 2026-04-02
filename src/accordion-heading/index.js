@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { registerBlockType, createBlock } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 import { accordionHeading } from '@wordpress/icons';
 
 /**
@@ -13,4 +13,9 @@ import save from './save';
 
 const transforms = {};
 
-registerBlockType( metadata, { edit: Edit, save, transforms, icon: accordionHeading } );
+registerBlockType( metadata, {
+	edit: Edit,
+	save,
+	transforms,
+	icon: accordionHeading,
+} );

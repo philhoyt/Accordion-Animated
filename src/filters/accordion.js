@@ -4,7 +4,11 @@
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 import { createHigherOrderComponent } from '@wordpress/compose';
-import { InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+} from '@wordpress/block-editor';
 import {
 	PanelBody,
 	ToggleControl,
@@ -33,7 +37,6 @@ const EASING_OPTIONS = [
 		value: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
 	},
 ];
-
 
 /**
  * Filter 1: Add animateTransition, animationDuration, and animationEasing
@@ -238,14 +241,31 @@ addFilter(
 						>
 							<div style={ { marginBottom: '16px' } }>
 								<RadioControl
-									label={ __( 'Icon type', 'accordion-animated' ) }
+									label={ __(
+										'Icon type',
+										'accordion-animated'
+									) }
 									selected={ customIconType || 'default' }
 									options={ [
-										{ label: __( 'Default', 'accordion-animated' ), value: 'default' },
-										{ label: __( 'Image', 'accordion-animated' ), value: 'image' },
+										{
+											label: __(
+												'Default',
+												'accordion-animated'
+											),
+											value: 'default',
+										},
+										{
+											label: __(
+												'Image',
+												'accordion-animated'
+											),
+											value: 'image',
+										},
 									] }
 									onChange={ ( value ) =>
-										setAttributes( { customIconType: value } )
+										setAttributes( {
+											customIconType: value,
+										} )
 									}
 								/>
 								{ customIconType === 'image' && (
@@ -255,8 +275,10 @@ addFilter(
 												setAttributes( {
 													customIconUrl: media.url,
 													customIconId: media.id,
-													customIconWidth: media.width ?? 0,
-													customIconHeight: media.height ?? 0,
+													customIconWidth:
+														media.width ?? 0,
+													customIconHeight:
+														media.height ?? 0,
 												} )
 											}
 											allowedTypes={ [ 'image' ] }
@@ -265,12 +287,17 @@ addFilter(
 												<div>
 													{ customIconUrl && (
 														<img
-															src={ customIconUrl }
+															src={
+																customIconUrl
+															}
 															alt=""
 															style={ {
-																display: 'block',
-																maxWidth: '4rem',
-																marginBottom: '0.5rem',
+																display:
+																	'block',
+																maxWidth:
+																	'4rem',
+																marginBottom:
+																	'0.5rem',
 															} }
 														/>
 													) }
@@ -280,13 +307,13 @@ addFilter(
 													>
 														{ customIconUrl
 															? __(
-																'Replace image',
-																'accordion-animated'
-															)
+																	'Replace image',
+																	'accordion-animated'
+															  )
 															: __(
-																'Select image',
-																'accordion-animated'
-															) }
+																	'Select image',
+																	'accordion-animated'
+															  ) }
 													</Button>
 													{ customIconUrl && (
 														<Button
@@ -294,13 +321,17 @@ addFilter(
 															isDestructive
 															onClick={ () =>
 																setAttributes( {
-																	customIconUrl: '',
+																	customIconUrl:
+																		'',
 																	customIconId: 0,
 																	customIconWidth: 0,
 																	customIconHeight: 0,
 																} )
 															}
-															style={ { marginLeft: '0.5rem' } }
+															style={ {
+																marginLeft:
+																	'0.5rem',
+															} }
 														>
 															{ __(
 																'Remove',
@@ -315,17 +346,32 @@ addFilter(
 								) }
 							</div>
 							<RadioControl
-								label={ __( 'Open animation', 'accordion-animated' ) }
+								label={ __(
+									'Open animation',
+									'accordion-animated'
+								) }
 								selected={ toggleAnimation || 'default' }
 								options={ [
-									{ label: __( 'Default (rotate 45°)', 'accordion-animated' ), value: 'default' },
-									{ label: __( 'Invert (rotate 180°)', 'accordion-animated' ), value: 'invert' },
+									{
+										label: __(
+											'Default (rotate 45°)',
+											'accordion-animated'
+										),
+										value: 'default',
+									},
+									{
+										label: __(
+											'Invert (rotate 180°)',
+											'accordion-animated'
+										),
+										value: 'invert',
+									},
 								] }
 								onChange={ ( value ) =>
 									setAttributes( { toggleAnimation: value } )
 								}
 							/>
-							</PanelBody>
+						</PanelBody>
 					</InspectorControls>
 				</>
 			);
@@ -391,7 +437,9 @@ function injectCustomIcon( element, customContent, iconProps = {} ) {
 
 	if (
 		typeof className === 'string' &&
-		className.split( ' ' ).includes( 'wp-block-accordion-heading__toggle-icon' )
+		className
+			.split( ' ' )
+			.includes( 'wp-block-accordion-heading__toggle-icon' )
 	) {
 		return cloneElement( element, iconProps, customContent );
 	}
@@ -459,12 +507,9 @@ addFilter(
 			return cloneElement( element, headingProps );
 		}
 
-		let customContent;
 		let iconProps = {};
 
-		customContent = (
-			<img src={ customIconUrl } alt="" aria-hidden="true" />
-		);
+		const customContent = <img src={ customIconUrl } alt="" aria-hidden="true" />;
 		if ( customIconWidth && customIconHeight ) {
 			iconProps = {
 				style: {
@@ -496,7 +541,12 @@ addFilter(
 			}
 
 			const { attributes } = props;
-			const { customIconType, customIconUrl, customIconWidth, customIconHeight } = attributes;
+			const {
+				customIconType,
+				customIconUrl,
+				customIconWidth,
+				customIconHeight,
+			} = attributes;
 
 			if ( customIconType !== 'image' || ! customIconUrl ) {
 				return <BlockListBlock { ...props } />;
@@ -506,7 +556,9 @@ addFilter(
 
 			wrapperStyle[ '--custom-icon-url' ] = `url("${ customIconUrl }")`;
 			if ( customIconWidth && customIconHeight ) {
-				wrapperStyle[ '--custom-icon-aspect-ratio' ] = `${ customIconWidth } / ${ customIconHeight }`;
+				wrapperStyle[
+					'--custom-icon-aspect-ratio'
+				] = `${ customIconWidth } / ${ customIconHeight }`;
 				wrapperStyle[ '--custom-icon-width' ] = '28px';
 			}
 
@@ -516,7 +568,9 @@ addFilter(
 				style: wrapperStyle,
 			};
 
-			return <BlockListBlock { ...props } wrapperProps={ wrapperProps } />;
+			return (
+				<BlockListBlock { ...props } wrapperProps={ wrapperProps } />
+			);
 		};
 	}, 'withAccordionHeadingIconPreview' )
 );

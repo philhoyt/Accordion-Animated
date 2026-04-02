@@ -40,47 +40,15 @@
 	}
 }
 
-// Toggle icon animation override — invert (rotate 180°) replaces core's 45°.
-// data-toggle-animation is on the <h3> element. The attribute selector raises
-// specificity above core's rule (0,4,0 vs 0,3,0) so this wins without !important.
-
-.wp-block-accordion-item.is-open
-> .wp-block-accordion-heading[data-toggle-animation="invert"]
-.wp-block-accordion-heading__toggle-icon {
-	transform: rotate(180deg);
-}
-
-// Remove the icon transition when invert is active — the instant snap is
-// intentional. Two selectors are needed: one to beat core's transition rule
-// (0,3,0) and one to beat this plugin's transition rule (0,4,0).
-@media ( prefers-reduced-motion: no-preference ) {
-	.wp-block-accordion-item
-	> .wp-block-accordion-heading[data-toggle-animation="invert"]
-	.wp-block-accordion-heading__toggle-icon,
-	.wp-block-accordion.has-animation .wp-block-accordion-item
-	> .wp-block-accordion-heading[data-toggle-animation="invert"]
-	.wp-block-accordion-heading__toggle-icon {
-		transition: none;
-	}
-}
-
 // Custom toggle icon — frontend.
-// The default SVG is removed from the DOM by blocks.getSaveElement; these rules
-// only handle layout of the injected replacement elements.
+// The default SVG is removed from the DOM by blocks.getSaveElement; these
+// rules only handle layout of the injected replacement elements.
 // data-custom-icon-type is on the <h3> element.
-
-.wp-block-accordion-heading[data-custom-icon-type="character"] {
-	.wp-block-accordion-heading__toggle-icon {
-		// Ensure the toggle icon span keeps its flex layout when the SVG is gone.
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-}
 
 .wp-block-accordion-heading[data-custom-icon-type="image"] {
 	// aspect-ratio and width are set inline by blocks.getSaveElement.
 	// This is a fallback for content saved before dimensions were stored.
+
 	.wp-block-accordion-heading__toggle-icon {
 		width: 28px;
 	}
@@ -91,4 +59,33 @@
 		object-fit: contain;
 		display: block;
 	}
+}
+
+// Toggle icon animation override — invert (rotate 180°) replaces core's 45°.
+// data-toggle-animation is on the <h3> element. The attribute selector raises
+// specificity above core's rule so this wins without !important.
+
+// stylelint-disable @stylistic/selector-combinator-space-after
+.wp-block-accordion-item.is-open >
+.wp-block-accordion-heading[data-toggle-animation="invert"]
+.wp-block-accordion-heading__toggle-icon {
+	transform: rotate(180deg);
+}
+// stylelint-enable @stylistic/selector-combinator-space-after
+
+// Remove the icon transition when invert is active — the instant snap is
+// intentional. Two selectors are needed: one to beat core's transition rule
+// and one to beat this plugin's transition rule.
+@media ( prefers-reduced-motion: no-preference ) {
+
+	// stylelint-disable @stylistic/selector-combinator-space-after
+	.wp-block-accordion-item >
+	.wp-block-accordion-heading[data-toggle-animation="invert"]
+	.wp-block-accordion-heading__toggle-icon,
+	.wp-block-accordion.has-animation .wp-block-accordion-item >
+	.wp-block-accordion-heading[data-toggle-animation="invert"]
+	.wp-block-accordion-heading__toggle-icon {
+		transition: none;
+	}
+	// stylelint-enable @stylistic/selector-combinator-space-after
 }

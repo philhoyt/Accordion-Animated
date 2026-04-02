@@ -5,10 +5,11 @@
 // Custom toggle icon preview in the block editor.
 // The editor.BlockListBlock filter adds data-custom-icon-type to the block's
 // outer wrapper div, so selectors here target descendants of that wrapper.
-// The attribute is only set when an image is actually selected, so the default
-// icon is only hidden when real custom content is present.
+// The attribute is only set when an image is actually selected, so the
+// default icon is only hidden when real custom content is present.
 
 [data-custom-icon-type="image"] {
+
 	.wp-block-accordion-heading__toggle-icon {
 		// Hide the default + text when a custom image is set.
 		font-size: 0;
