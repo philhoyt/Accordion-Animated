@@ -8,7 +8,11 @@ export default function save() {
 	// by the accordion-animated/accordion-item render_callback in PHP,
 	// mirroring what block_core_accordion_item_render does for core/accordion-item.
 	return (
-		<div { ...useBlockProps.save( { className: 'wp-block-accordion-item' } ) }>
+		<div
+			{ ...useBlockProps.save( {
+				className: 'wp-block-accordion-item',
+			} ) }
+		>
 			<InnerBlocks.Content />
 		</div>
 	);
