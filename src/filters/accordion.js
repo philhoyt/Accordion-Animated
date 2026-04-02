@@ -509,7 +509,9 @@ addFilter(
 
 		let iconProps = {};
 
-		const customContent = <img src={ customIconUrl } alt="" aria-hidden="true" />;
+		const customContent = (
+			<img src={ customIconUrl } alt="" aria-hidden="true" />
+		);
 		if ( customIconWidth && customIconHeight ) {
 			iconProps = {
 				style: {
