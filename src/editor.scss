@@ -10,8 +10,11 @@
 
 [data-custom-icon-type] {
 	.wp-block-accordion-heading__toggle-icon {
+		// Hide the default + text and any SVG.
+		font-size: 0;
+
 		svg {
-			display: none;
+			display: none !important;
 		}
 	}
 }
@@ -24,6 +27,7 @@
 
 		&::before {
 			content: var(--custom-icon-char);
+			font-size: 1rem;
 			font-style: normal;
 			line-height: 1;
 		}
@@ -32,7 +36,9 @@
 
 [data-custom-icon-type="image"] {
 	.wp-block-accordion-heading__toggle-icon {
+		display: block;
 		width: var(--custom-icon-width, 28px);
+		height: auto;
 		aspect-ratio: var(--custom-icon-aspect-ratio, 1);
 		background-image: var(--custom-icon-url);
 		background-size: contain;

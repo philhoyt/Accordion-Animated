@@ -35,20 +35,6 @@ const EASING_OPTIONS = [
 	},
 ];
 
-const ICON_TYPE_OPTIONS = [
-	{
-		label: __( 'Default', 'accordion-animated' ),
-		value: 'default',
-	},
-	{
-		label: __( 'Character', 'accordion-animated' ),
-		value: 'character',
-	},
-	{
-		label: __( 'Image', 'accordion-animated' ),
-		value: 'image',
-	},
-];
 
 /**
  * Filter 1: Add animateTransition, animationDuration, and animationEasing
@@ -252,112 +238,112 @@ addFilter(
 							title={ __( 'Toggle Icon', 'accordion-animated' ) }
 							initialOpen={ false }
 						>
-							<RadioControl
-								label={ __( 'Icon type', 'accordion-animated' ) }
-								selected={ customIconType || 'default' }
-								options={ ICON_TYPE_OPTIONS }
-								onChange={ ( value ) =>
-									setAttributes( { customIconType: value } )
-								}
-							/>
-							{ customIconType === 'character' && (
-								<TextControl
-									label={ __(
-										'Character or emoji',
-										'accordion-animated'
-									) }
-									value={ customIconChar }
-									onChange={ ( value ) =>
-										setAttributes( { customIconChar: value } )
-									}
-									help={ __(
-										'Enter a single character or emoji to use as the toggle icon.',
-										'accordion-animated'
-									) }
-								/>
-							) }
-							{ customIconType === 'image' && (
-								<MediaUploadCheck>
-									<MediaUpload
-										onSelect={ ( media ) =>
-											setAttributes( {
-												customIconUrl: media.url,
-												customIconId: media.id,
-												customIconWidth: media.width ?? 0,
-												customIconHeight: media.height ?? 0,
-											} )
-										}
-										allowedTypes={ [ 'image' ] }
-										value={ customIconId }
-										render={ ( { open } ) => (
-											<div>
-												{ customIconUrl && (
-													<img
-														src={ customIconUrl }
-														alt=""
-														style={ {
-															display: 'block',
-															maxWidth: '4rem',
-															marginBottom: '0.5rem',
-														} }
-													/>
-												) }
-												<Button
-													variant="secondary"
-													onClick={ open }
-												>
-													{ customIconUrl
-														? __(
-															'Replace image',
-															'accordion-animated'
-														)
-														: __(
-															'Select image',
-															'accordion-animated'
-														) }
-												</Button>
-												{ customIconUrl && (
-													<Button
-														variant="link"
-														isDestructive
-														onClick={ () =>
-															setAttributes( {
-																customIconUrl: '',
-																customIconId: 0,
-																customIconWidth: 0,
-																customIconHeight: 0,
-															} )
-														}
-														style={ { marginLeft: '0.5rem' } }
-													>
-														{ __(
-															'Remove',
-															'accordion-animated'
-														) }
-													</Button>
-												) }
-											</div>
-										) }
-									/>
-								</MediaUploadCheck>
-							) }
+							<div style={ { marginBottom: '16px' } }>
 								<RadioControl
-									label={ __( 'Open animation', 'accordion-animated' ) }
-									selected={ toggleAnimation || 'default' }
+									label={ __( 'Icon type', 'accordion-animated' ) }
+									selected={ customIconType || 'default' }
 									options={ [
-										{
-											label: __( 'Default (rotate 45°)', 'accordion-animated' ),
-											value: 'default',
-										},
-										{
-											label: __( 'Invert (rotate 180°)', 'accordion-animated' ),
-											value: 'invert',
-										},
+										{ label: __( 'Default', 'accordion-animated' ), value: 'default' },
+										{ label: __( 'Character', 'accordion-animated' ), value: 'character' },
+										{ label: __( 'Image', 'accordion-animated' ), value: 'image' },
 									] }
 									onChange={ ( value ) =>
-										setAttributes( { toggleAnimation: value } )
+										setAttributes( { customIconType: value } )
 									}
 								/>
+								{ customIconType === 'character' && (
+									<TextControl
+										label={ __(
+											'Character or emoji',
+											'accordion-animated'
+										) }
+										value={ customIconChar }
+										onChange={ ( value ) =>
+											setAttributes( { customIconChar: value } )
+										}
+										help={ __(
+											'Enter a single character or emoji to use as the toggle icon.',
+											'accordion-animated'
+										) }
+									/>
+								) }
+								{ customIconType === 'image' && (
+									<MediaUploadCheck>
+										<MediaUpload
+											onSelect={ ( media ) =>
+												setAttributes( {
+													customIconUrl: media.url,
+													customIconId: media.id,
+													customIconWidth: media.width ?? 0,
+													customIconHeight: media.height ?? 0,
+												} )
+											}
+											allowedTypes={ [ 'image' ] }
+											value={ customIconId }
+											render={ ( { open } ) => (
+												<div>
+													{ customIconUrl && (
+														<img
+															src={ customIconUrl }
+															alt=""
+															style={ {
+																display: 'block',
+																maxWidth: '4rem',
+																marginBottom: '0.5rem',
+															} }
+														/>
+													) }
+													<Button
+														variant="secondary"
+														onClick={ open }
+													>
+														{ customIconUrl
+															? __(
+																'Replace image',
+																'accordion-animated'
+															)
+															: __(
+																'Select image',
+																'accordion-animated'
+															) }
+													</Button>
+													{ customIconUrl && (
+														<Button
+															variant="link"
+															isDestructive
+															onClick={ () =>
+																setAttributes( {
+																	customIconUrl: '',
+																	customIconId: 0,
+																	customIconWidth: 0,
+																	customIconHeight: 0,
+																} )
+															}
+															style={ { marginLeft: '0.5rem' } }
+														>
+															{ __(
+																'Remove',
+																'accordion-animated'
+															) }
+														</Button>
+													) }
+												</div>
+											) }
+										/>
+									</MediaUploadCheck>
+								) }
+							</div>
+							<RadioControl
+								label={ __( 'Open animation', 'accordion-animated' ) }
+								selected={ toggleAnimation || 'default' }
+								options={ [
+									{ label: __( 'Default (rotate 45°)', 'accordion-animated' ), value: 'default' },
+									{ label: __( 'Invert (rotate 180°)', 'accordion-animated' ), value: 'invert' },
+								] }
+								onChange={ ( value ) =>
+									setAttributes( { toggleAnimation: value } )
+								}
+							/>
 							</PanelBody>
 					</InspectorControls>
 				</>
