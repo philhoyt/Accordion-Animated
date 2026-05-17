@@ -29,6 +29,8 @@ export default function Edit( { attributes, setAttributes, context } ) {
 	const contextLevel = context?.[ 'core/accordion-heading-level' ];
 	const TagName = `h${ contextLevel || 3 }`;
 
+	// Prevents context-sync attribute writes from polluting undo history.
+	// __unstable prefix = internal API; check for a stable replacement on wp-scripts upgrades.
 	const { __unstableMarkNextChangeAsNotPersistent } =
 		useDispatch( blockEditorStore );
 

@@ -29,7 +29,7 @@
 					panel.style.marginBlockStart = '0px';
 					panel.style.height = '0px';
 					// Force a reflow to commit the values before re-enabling transition.
-					panel.getBoundingClientRect(); // eslint-disable-line no-unused-expressions
+					panel.getBoundingClientRect();
 					panel.style.transition = '';
 				}
 

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`accordion-heading save custom image icon with URL — adds data-custom-icon-type and img tag 1`] = `"<h3 class="wp-block-accordion-heading" data-custom-icon-type="image"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true"><img src="https://example.com/icon.svg" alt="" aria-hidden="true"/></span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
+
+exports[`accordion-heading save custom image icon with dimensions — applies aspect-ratio style 1`] = `"<h3 class="wp-block-accordion-heading" data-custom-icon-type="image"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true" style="aspect-ratio:24 / 24;width:28px"><img src="https://example.com/icon.svg" alt="" aria-hidden="true"/></span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
+
+exports[`accordion-heading save default attributes — no data attributes, + icon renders left 1`] = `"<h3 class="wp-block-accordion-heading"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
+
+exports[`accordion-heading save iconPosition right — icon renders after title 1`] = `"<h3 class="wp-block-accordion-heading"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>"`;
+
+exports[`accordion-heading save invert animation + custom image icon — both data attributes present 1`] = `"<h3 class="wp-block-accordion-heading" data-custom-icon-type="image" data-toggle-animation="invert"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true"><img src="https://example.com/icon.svg" alt="" aria-hidden="true"/></span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
+
+exports[`accordion-heading save showIcon false — no icon span 1`] = `"<h3 class="wp-block-accordion-heading"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
+
+exports[`accordion-heading save toggleAnimation invert — adds data-toggle-animation attribute 1`] = `"<h3 class="wp-block-accordion-heading" data-toggle-animation="invert"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
