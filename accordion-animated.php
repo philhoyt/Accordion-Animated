@@ -1,4 +1,6 @@
 <?php
+declare( strict_types=1 );
+
 /**
  * Plugin Name:       Accordion Animated
  * Plugin URI:        https://github.com/philhoyt/accordion-animated
@@ -80,11 +82,11 @@ add_filter(
 		$metadata['attributes'] = array_merge(
 			$metadata['attributes'] ?? [],
 			[
-				'customIconType' => [
+				'customIconType'   => [
 					'type'    => 'string',
 					'default' => 'default',
 				],
-				'customIconChar' => [
+				'customIconChar'   => [
 					'type'    => 'string',
 					'default' => '',
 				],
@@ -100,7 +102,7 @@ add_filter(
 					'type'    => 'integer',
 					'default' => 0,
 				],
-				'customIconHeight'  => [
+				'customIconHeight' => [
 					'type'    => 'integer',
 					'default' => 0,
 				],
@@ -324,4 +326,3 @@ add_action(
 		);
 	}
 );
-

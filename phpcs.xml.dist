@@ -13,6 +13,15 @@
 		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
 	</rule>
 
+	<!-- WordPress requires the plugin header docblock immediately after <?php, so
+	     declare(strict_types=1) must follow it — this conflicts with PSR12 ordering. -->
+	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>accordion-animated\.php</exclude-pattern>
+	</rule>
+	<rule ref="PSR12.Files.FileHeader.IncorrectOrder">
+		<exclude-pattern>accordion-animated\.php</exclude-pattern>
+	</rule>
+
 	<config name="minimum_supported_wp_version" value="6.9"/>
 	<config name="testVersion" value="8.0-"/>
 </ruleset>
