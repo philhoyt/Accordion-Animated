@@ -8,71 +8,80 @@ Stable tag: 1.2.3
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds animated open/close transitions and extended block enhancements to the core WordPress Accordion block.
+Adds an open/close height animation and a custom toggle icon to the core Accordion block, plus an accordion heading that accepts any block
 
 == Description ==
 
-Accordion Animated extends the core Accordion block with a CSS height transition. Animation is opt-in per block and configured entirely through the block inspector. Two optional extended blocks, Accordion Item Extended and Accordion Heading Extended, unlock rich block content inside the heading area and are interchangeable with core accordion blocks via block transforms.
+Accordion Animated extends the core Accordion block. It does not replace any core block; it adds settings to `core/accordion` and `core/accordion-heading` through block filters and registers two optional blocks of its own.
 
-* Enable or disable animation per Accordion block from the block inspector.
-* Set animation duration between 100ms and 1000ms.
-* Four easing options: Ease Out, Ease In Out, Linear, and Spring.
-* Animation timing renders as CSS custom properties; height transitions are driven by a lightweight frontend script.
-* Replace the default toggle icon with a custom image from the media library.
-* Choose toggle icon rotation: Default (rotate 45°) or Invert (rotate 180°).
-* Accordion Item Extended block — companion item with an unlocked heading area, usable wherever core accordion items are allowed.
-* Accordion Heading Extended block — InnerBlocks-based heading supporting any block content (paragraphs, images, etc.).
-* Block transforms between core and extended accordion variants in both directions.
+Animation is off until you turn it on for a given Accordion block. In the Animation panel of the block inspector you can:
+
+* Turn on Animate open/close.
+* Set the duration from 100 ms to 1000 ms in 50 ms steps.
+* Pick an easing: Ease Out, Ease In Out, Linear, or Spring.
+
+The duration and easing are written to the block as CSS custom properties. A small front-end script sets the panel height, so height, padding, and top margin transition together and the panel collapses to zero even when it has block-support spacing. The animation is skipped for visitors who have reduced motion set in their operating system.
+
+On each Accordion Heading you can replace the default plus icon with an image from the media library, and choose whether the icon rotates 45 degrees (the default) or 180 degrees when the item opens.
+
+The two extra blocks cover headings that need more than plain text:
+
+* Accordion Item Extended works anywhere a core Accordion Item is allowed. It is a core item with a heading that accepts inner blocks.
+* Accordion Heading Extended is the heading used inside it. Put paragraphs, images, or any other block in the heading area.
+
+Block transforms convert between the core and extended item and heading in both directions.
 
 == Installation ==
 
-1. Download the latest `accordion-animated.zip` from the [GitHub releases page](https://github.com/philhoyt/accordion-animated/releases).
-2. Go to **Plugins → Add New → Upload Plugin** and upload the zip file.
-3. Activate through the Plugins screen.
-4. Select an Accordion block in the editor and enable **Animate open/close** in the Animation panel in the block inspector.
+1. Download `accordion-animated.zip` from the [GitHub releases page](https://github.com/philhoyt/accordion-animated/releases).
+2. Go to Plugins > Add New > Upload Plugin and upload the zip.
+3. Activate the plugin on the Plugins screen.
+4. Select an Accordion block, open the Animation panel in the block inspector, and turn on Animate open/close.
+
+Updates come from GitHub releases through the bundled Plugin Update Checker.
 
 == Frequently Asked Questions ==
 
-= Does this replace the core Accordion block? =
+= Does this change existing Accordion blocks? =
 
-No. Block filters extend `core/accordion` and `core/accordion-heading` in place. The two extended blocks are entirely optional.
+No. Animation is off by default and the toggle icon is the core one until you change it. Blocks you have not touched render as before.
 
-= Will this break existing Accordion blocks? =
+= Why does the heading need a separate block? =
 
-No. Animation is off by default and all enhancements are opt-in.
+The core Accordion Heading stores its text as one rich-text field. Accordion Heading Extended uses inner blocks instead, so any block can go in the heading. Insert an Accordion Item Extended to get an item that already contains the extended heading, or transform an existing core item.
 
-= Can I control the speed and easing? =
+= Does the animation respect reduced-motion settings? =
 
-Yes. Set the duration in milliseconds and pick an easing curve from the block inspector.
+Yes. The CSS transitions are wrapped in a `prefers-reduced-motion: no-preference` media query, so visitors who have asked for reduced motion get the panel opening and closing without a transition.
 
-= What is the difference between the extended blocks and core accordion blocks? =
+= Are the plugin's scripts loaded on every page? =
 
-The core `accordion-heading` block stores heading text as a single rich-text field. Accordion Heading Extended uses InnerBlocks instead, so you can place any block inside the heading area. Use Accordion Item Extended to insert an accordion item that contains an extended heading. Both variants are interchangeable via block transforms.
+Yes. The front-end stylesheet and the height script are enqueued on every front-end page, whether or not the page contains an accordion.
 
 == Changelog ==
 
 = 1.2.3 =
-* Change: Tested against WordPress 7.1 and rebuilt with the current block editor toolchain.
+* Tested up to WordPress 7.1 and rebuilt with the current block editor toolchain.
 
 = 1.2.2 =
-* Fix: Correct custom icon image rendering in the block editor.
-* Change: Lower minimum WordPress version requirement to 6.9.
+* Fixed custom icon images not rendering in the block editor.
+* Lowered the minimum WordPress version to 6.9.
 
 = 1.2.1 =
-* Fix: Prevent padding and margin from animating on page load for closed accordion panels.
-* Fix: Remove default block margin from Accordion Heading Extended.
-* Fix: Remove default toggle button padding inside Accordion Item Extended.
+* Fixed padding and margin animating on page load for panels that start closed.
+* Removed the default block margin from Accordion Heading Extended.
+* Removed the default toggle button padding inside Accordion Item Extended.
 
 = 1.2.0 =
-* New: Replace the default toggle icon with a custom image from the media library.
-* New: Toggle animation direction — Default (rotate 45°) or Invert (rotate 180°).
-* New: Accordion Item Extended block (accordion-animated/accordion-item) — companion accordion item with an open template and unlocked heading area.
-* New: Accordion Heading Extended block (accordion-animated/accordion-heading) — InnerBlocks-based heading supporting rich block content.
-* New: Block transforms between core and extended accordion item/heading variants in both directions.
+* Added a custom toggle icon option that takes an image from the media library.
+* Added a toggle rotation setting: Default (45 degrees) or Invert (180 degrees).
+* Added the Accordion Item Extended block (accordion-animated/accordion-item), an accordion item whose heading accepts inner blocks.
+* Added the Accordion Heading Extended block (accordion-animated/accordion-heading), a heading built on inner blocks.
+* Added block transforms between the core and extended item and heading blocks in both directions.
 
 = 1.1.0 =
-* Animate padding-top, padding-bottom, and margin-block-start alongside height so panels with block-support spacing fully collapse to zero and expand smoothly.
-* GitHub-based plugin updates via Plugin Update Checker (v5.6).
+* Animated padding-top, padding-bottom, and margin-block-start together with height, so panels with block-support spacing collapse to zero.
+* Added GitHub-based plugin updates through Plugin Update Checker 5.6.
 
 = 1.0.0 =
 * Initial release.
