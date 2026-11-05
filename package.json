@@ -12,7 +12,7 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"test:unit": "wp-scripts test-unit-js"
+		"test:unit": "wp-scripts test-unit-jest"
 	},
 	"files": [
 		"build",
@@ -22,9 +22,19 @@
 		"readme.txt"
 	],
 	"devDependencies": {
+		"@babel/core": "^7.25.7",
+		"@wordpress/babel-preset-default": "^8.55.0",
+		"@wordpress/compose": "^9.1.0",
 		"@wordpress/element": "^6.46.0",
+		"@wordpress/hooks": "^5.1.0",
+		"@wordpress/i18n": "^7.1.0",
 		"@wordpress/icons": "^13.1.0",
-		"@wordpress/scripts": "^32.2.0",
+		"@wordpress/jest-preset-default": "^14.2.0",
+		"@wordpress/scripts": "^37.1.0",
+		"babel-jest": "^30.5.0",
+		"eslint-plugin-jest": "^29.17.0",
+		"jest": "^30.5.0",
+		"jest-environment-jsdom": "^30.5.0",
 		"react-dom": "^18.3.1"
 	}
 }

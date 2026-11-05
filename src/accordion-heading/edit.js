@@ -169,11 +169,11 @@ export default function Edit( { attributes, setAttributes, context } ) {
 													? __(
 															'Replace image',
 															'accordion-animated'
-													  )
+														)
 													: __(
 															'Select image',
 															'accordion-animated'
-													  ) }
+														) }
 											</Button>
 											{ customIconUrl && (
 												<Button

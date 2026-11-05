@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`accordion-heading save custom image icon with URL — adds data-custom-icon-type and img tag 1`] = `"<h3 class="wp-block-accordion-heading" data-custom-icon-type="image"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true"><img src="https://example.com/icon.svg" alt="" aria-hidden="true"/></span><span class="wp-block-accordion-heading__toggle-title"><div class="inner-blocks"></div></span></button></h3>"`;
 

@@ -309,11 +309,11 @@ addFilter(
 															? __(
 																	'Replace image',
 																	'accordion-animated'
-															  )
+																)
 															: __(
 																	'Select image',
 																	'accordion-animated'
-															  ) }
+																) }
 													</Button>
 													{ customIconUrl && (
 														<Button
@@ -558,9 +558,8 @@ addFilter(
 
 			wrapperStyle[ '--custom-icon-url' ] = `url("${ customIconUrl }")`;
 			if ( customIconWidth && customIconHeight ) {
-				wrapperStyle[
-					'--custom-icon-aspect-ratio'
-				] = `${ customIconWidth } / ${ customIconHeight }`;
+				wrapperStyle[ '--custom-icon-aspect-ratio' ] =
+					`${ customIconWidth } / ${ customIconHeight }`;
 				wrapperStyle[ '--custom-icon-width' ] = '28px';
 			}
 

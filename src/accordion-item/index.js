@@ -32,7 +32,7 @@ const transforms = {
 									createBlock( 'core/paragraph', {
 										content: title,
 									} ),
-							  ]
+								]
 							: []
 					);
 				} );
