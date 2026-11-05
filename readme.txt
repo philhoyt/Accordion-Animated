@@ -4,7 +4,7 @@ Tags: accordion, animation, block
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Yes. Set the duration in milliseconds and pick an easing curve from the block in
 The core `accordion-heading` block stores heading text as a single rich-text field. Accordion Heading Extended uses InnerBlocks instead, so you can place any block inside the heading area. Use Accordion Item Extended to insert an accordion item that contains an extended heading. Both variants are interchangeable via block transforms.
 
 == Changelog ==
+
+= 1.2.3 =
+* Change: Tested against WordPress 7.1 and rebuilt with the current block editor toolchain.
 
 = 1.2.2 =
 * Fix: Correct custom icon image rendering in the block editor.
