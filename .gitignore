@@ -3,3 +3,4 @@ build/
 /vendor
 *.zip
 .DS_Store
+.wp-env.override.json
