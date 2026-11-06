@@ -97,6 +97,10 @@ The workflow (`.github/workflows/release.yml`) runs `npm ci`, `npm run build` an
 
 ## Changelog
 
+### 1.2.4
+- Fixed the update checker so it always installs the release zip, not whichever file GitHub lists first.
+- Rewrote the readme files in plain English.
+
 ### 1.2.3
 - Tested up to WordPress 7.1 and rebuilt with the current block editor toolchain.
 

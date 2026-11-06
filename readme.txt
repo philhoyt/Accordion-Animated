@@ -4,7 +4,7 @@ Tags: accordion, animation, block
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,10 @@ Yes. The CSS transitions are wrapped in a `prefers-reduced-motion: no-preference
 Yes. The front-end stylesheet and the height script are enqueued on every front-end page, whether or not the page contains an accordion.
 
 == Changelog ==
+
+= 1.2.4 =
+* Fixed the update checker so it always installs the release zip, not whichever file GitHub lists first.
+* Rewrote the readme files in plain English.
 
 = 1.2.3 =
 * Tested up to WordPress 7.1 and rebuilt with the current block editor toolchain.
